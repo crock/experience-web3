@@ -1,42 +1,28 @@
-import * as React from "react"
-import PropTypes from "prop-types"
+import React from "react"
 import { Link } from "gatsby"
+import NavBar from "./NavBar"
+import { useSiteMetadata } from '../hooks/'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = () => {
+  const { siteTitle, tagline } = useSiteMetadata()
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+  return (
+    <header className="bg-blue-500">
+      <div className="mx-auto container-sm p-4 flex flex-col justify-center place-content-center items-center">
+        <div className="flex flex-col justify-center items-center">
+          <strong className="mb-0">
+            <Link
+              to="/"
+              className="font-bold text-white text-2xl">
+              {siteTitle}
+            </Link>
+          </strong>
+          <small className="text-blue-900 text-sm font-semibold uppercase mt-2">{tagline}</small>
+        </div>
+        <NavBar />
+      </div>
+    </header>
+  )
 }
 
 export default Header

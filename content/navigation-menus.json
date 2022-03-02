@@ -1,0 +1,16 @@
+{
+    "primary": [
+        {
+            "order": 1,
+            "displayName": "Home",
+            "url": "/",
+            "tooltip": ""
+        },
+        {
+            "order": 2,
+            "displayName": "Resources",
+            "url": "/resources",
+            "tooltip": "Directory of essential Web3 resources"
+        }
+    ]
+}
